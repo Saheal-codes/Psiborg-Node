@@ -27,7 +27,6 @@ exports.login = async (req, res) => {
     res.status(500).send(err);
   }
 };
-
 exports.register = async (req, res) => {
   try {
     const userdoc = await usermodel.create({
