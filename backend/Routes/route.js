@@ -18,12 +18,17 @@ router.post(
 //book CRUD operations
 router.post("/book/create/", middleware.verifylogin, bookcontroller.createbook);
 
-router.get("/book/read/", middleware.verifylogin, bookcontroller.getbooks);
+router.post("/book/read/", middleware.verifylogin, bookcontroller.getbooks);
 
 router.delete(
   "/book/delete/",
   middleware.verifylogin,
   bookcontroller.deletebook
 );
+// author read operation
+router.post("/getauthors", authorcontroller.getauthor);
+
+//verify token
+router.post("/verifytoken", middleware.verifylogin, usercontroller.tokencheck);
 
 module.exports = router;

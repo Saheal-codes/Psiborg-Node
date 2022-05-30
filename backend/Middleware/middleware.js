@@ -2,7 +2,8 @@ const usermodel = require("../model/usermodel");
 const jwt = require("jsonwebtoken");
 
 exports.verifylogin = async (req, res, next) => {
-  const token = req.headers.authorization?.split(" ")[1];
+  console.log(req.headers);
+  const token = req.body.token || req.headers.authorization;
   if (!token) {
     return res.status(401).send({ message: "There is no token" });
   }

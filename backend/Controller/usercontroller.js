@@ -39,3 +39,6 @@ exports.register = async (req, res) => {
     res.status(500).send(err);
   }
 };
+exports.tokencheck = async (req, res) => {
+  res.status(200).send({ message: "Token verified" });
+};

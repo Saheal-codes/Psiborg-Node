@@ -13,3 +13,12 @@ exports.createauthor = async (req, res) => {
     res.status(500).send(err);
   }
 };
+exports.getauthor = async (req, res) => {
+  try {
+    let all_authors = await authormodel.find({});
+    res.send(all_authors);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+};

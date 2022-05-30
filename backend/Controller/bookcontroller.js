@@ -19,13 +19,13 @@ exports.createbook = async (req, res) => {
         .status(400)
         .send({ message: "There is no Author with this ID" });
     }
-    let createbook = await bookmodel.create({
+    let book = await bookmodel.create({
       authorid: req.body.authorid,
       book_name: req.body.book_name,
       publishedon: req.body.publishedon,
       price: req.body.price,
     });
-    res.send({ message: "BOOK ENTRY CREATED !", createbook });
+    res.send({ message: "BOOK ENTRY CREATED !", book });
   } catch (err) {
     console.error(err);
     res.status(500).send(err);
