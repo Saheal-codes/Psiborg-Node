@@ -34,7 +34,7 @@ exports.createbook = async (req, res) => {
 
 exports.deletebook = async (req, res) => {
   try {
-    let deletebook = await bookmodel.findOneAndDelete({ _id: req.body._id });
+    let deletebook = await bookmodel.findOneAndDelete({ _id: req.query.id });
     res.send({ message: "BOOK ENTRY deleTED !", deletebook });
   } catch (err) {
     console.error(err);

@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 exports.verifylogin = async (req, res, next) => {
   console.log(req.headers);
-  const token = req.body.token || req.headers.authorization;
+  const token = req.body.token || req.headers.authorization?.split(" ")[1];
   if (!token) {
     return res.status(401).send({ message: "There is no token" });
   }
